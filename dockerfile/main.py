@@ -17,7 +17,7 @@ def list_namespaces():
     return {"namespaces": [ns.metadata.name for ns in namespaces]}
 
 
-@app.post("/namespaces/create")    #localhost:8000/namespaces/create/novo-ns
+@app.post("/create/{name}")    #localhost:8000/namespaces/create/novo-ns
 def create_namespace(name: str):
 
     metadata = client.V1ObjectMeta(name=name)
@@ -26,7 +26,7 @@ def create_namespace(name: str):
     
 
 
-@app.delete("/namespaces/delete/{name}")
+@app.delete("/delete/{name}")
 def delete_namespace(name: str):
 
     k8s_api.delete_namespace(name)

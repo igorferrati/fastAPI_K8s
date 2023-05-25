@@ -26,7 +26,7 @@
         function createNamespace() {
             var name = prompt('Digite o namespace:');
             if (name) {
-                axios.post('/namespaces/create', { name: name })
+                axios.post('/create', { name: name })
                     .then(function () {
                         alert('Namespace criado com sucesso.');
                         getNamespaces();
@@ -40,7 +40,7 @@
         function deleteNamespace() {
             var name = prompt('Digite o namespace para deletar:');
             if (name) {
-                axios.delete('/namespaces/delete/' + name)
+                axios.delete('/delete/' + name)
                     .then(function () {
                         alert('Namespace deletado com sucesso.');
                         getNamespaces();
@@ -54,7 +54,9 @@
 </head>
 <body>
     <h1>Namespaces</h1>
-    <button onclick="getNamespaces()">List Namespaces</button>
+    <script>
+    <h2>getNamespaces();</h2>
+    </script>
     <ul id="namespaces-list"></ul>
     <button onclick="createNamespace()">Create Namespace</button>
     <button onclick="deleteNamespace()">Delete Namespace</button>
