@@ -1,6 +1,6 @@
 # FastAPI in Kubenertes :snake:
 
-## FastAPI consome a API do Kubernetes
+## FastAPI Consumindo a API do Kubernetes
 
 Criação de um servidor que lista namespace de um cluster com topologia:
 
@@ -25,6 +25,7 @@ Criação de um servidor que lista namespace de um cluster com topologia:
 ## Config vunigorn
 
 Ao montar o container, executamos o vunicorn para expôr nossa aplicação:
+
 ``` ENTRYPOINT ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"] ```
 
 
@@ -35,11 +36,13 @@ Ao montar o container, executamos o vunicorn para expôr nossa aplicação:
 * O comando ```pip install -r requirements.txt``` instala as dependências
 * É utilizado o [Kubernetes Python Client](https://github.com/kubernetes-client/python) API para consumir recursos do cluster
 
-### Index.html
+## Index.html
 
 * O html utiliza a biblioteca Axios para realizar solicitações em HTTP.
 
 * Temos uma página html (front) que possuí uma lógica de mapemaneto para as funções python do fastAPI (backend).
+
+```<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>```
 
 
 ## ServiceAccount / ClusterRole / ClusterRoleBinding
