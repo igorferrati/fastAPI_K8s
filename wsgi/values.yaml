@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: igorferrati/serverfastapi
+  repository: igorferrati/fastapi
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "4.0"
+  tag: "2.0"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -75,7 +75,7 @@ ingress:
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: app.34.122.129.137.sslip.io
+    - host: app.34.125.53.9.sslip.io
       paths:
         - path: /
           pathType: Prefix

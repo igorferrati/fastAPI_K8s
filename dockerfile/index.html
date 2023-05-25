@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Namespaces</title>
+    <meta http-equiv="refresh" content="5">
+    <title>Namespaces</title> 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
         function getNamespaces() {
@@ -25,7 +26,7 @@
         function createNamespace() {
             var name = prompt('Digite o namespace:');
             if (name) {
-                axios.post('/namespaces/create/', { name: name })
+                axios.post('/namespaces/create', { name: name })
                     .then(function () {
                         alert('Namespace criado com sucesso.');
                         getNamespaces();

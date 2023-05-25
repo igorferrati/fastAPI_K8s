@@ -1,9 +1,14 @@
 from fastapi import FastAPI
+from fastapi.responses import FileResponse
 from kubernetes import client, config
 
 app = FastAPI()
 config.load_incluster_config()
 k8s_api = client.CoreV1Api()
+
+@app.get("/")
+def root():
+    return FileResponse("index.html")
 
 @app.get("/namespaces")
 def list_namespaces():
@@ -12,7 +17,7 @@ def list_namespaces():
     return {"namespaces": [ns.metadata.name for ns in namespaces]}
 
 
-@app.post("/namespaces/create/")    #localhost:8000/namespaces/create/novo-ns
+@app.post("/namespaces/create")    #localhost:8000/namespaces/create/novo-ns
 def create_namespace(name: str):
 
     metadata = client.V1ObjectMeta(name=name)
