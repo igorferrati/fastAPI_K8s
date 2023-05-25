@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from kubernetes import client, config
 
 app = FastAPI()
-config.load_kube_config()
+config.load_incluster_config()
 k8s_api = client.CoreV1Api()
 
 @app.get("/namespaces")

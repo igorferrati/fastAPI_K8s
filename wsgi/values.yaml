@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: igorferrati/server
+  repository: igorferrati/serverfastapi
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "1.1"
+  tag: "4.0"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -28,7 +28,7 @@ clusterrole:
   rules:
   - apiGroups: [""]
     resources: ["namespaces"]
-    verbs: ["get", "list"]
+    verbs: ["get", "list", "create", "delete"]
 
 clusterrolebind:
   name: sa-get-ns
