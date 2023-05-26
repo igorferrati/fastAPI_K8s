@@ -5,7 +5,7 @@
 Criação de um servidor que lista namespace de um cluster com topologia:
 
 * Aplicação lista, deleta e cria namespaces dentro do cluster kubernetes do qual ela for implantada
-* Vunicorn como servidor HTTP 
+* Uvicorn e FastAPI como servidor 
 * Cluster Role / Service Account para acesso para aplicação
 * Implantação via helm
 ---
@@ -22,7 +22,7 @@ Criação de um servidor que lista namespace de um cluster com topologia:
 
 ---
 
-## Config vunigorn
+## Config uvicorn
 
 Ao montar o container, executamos o vunicorn para expôr nossa aplicação:
 
