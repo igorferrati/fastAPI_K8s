@@ -1,3 +1,5 @@
+
+from typing import Dict
 from fastapi import FastAPI
 from fastapi.responses import FileResponse
 from kubernetes import client, config
@@ -18,10 +20,11 @@ def list_namespaces():
 
 
 @app.post("/create")
-def create_namespace(name: str):
-    new_namespace = client.V1Namespace(metadata=client.V1ObjectMeta(name=name))
-    k8s_api.create_namespace(new_namespace)
-    
+def create_namespace(data: Dict[str, str]):
+    name = data.get("name")
+    create_ns = client.V1Namespace(metadata=client.V1ObjectMeta(name=name))
+    k8s_api.create_namespace(create_ns)
+
 
 @app.delete("/delete/{name}")
 def delete_namespace(name: str):
