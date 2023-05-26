@@ -4,6 +4,7 @@ WORKDIR /app
 COPY requirements.txt .
 COPY main.py .
 COPY index.html . 
+COPY styles.css .
 
 RUN  pip install -r requirements.txt
 
