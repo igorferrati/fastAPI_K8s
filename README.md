@@ -29,9 +29,9 @@ Ao montar o container, executamos o vunicorn para expôr nossa aplicação:
 ``` ENTRYPOINT ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"] ```
 
 
-## Dockerfile
+## Dockerfile | Image
 
-* Imagem python 3.9
+* imagem base python:alpine3.17
 * O build da imagem cria as dependências necessárias a partir do requirements.txt
 * O comando ```pip install -r requirements.txt``` instala as dependências
 * É utilizado o [Kubernetes Python Client](https://github.com/kubernetes-client/python) API para consumir recursos do cluster
